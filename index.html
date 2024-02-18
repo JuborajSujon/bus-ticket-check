@@ -29,6 +29,14 @@
               "clr-primary": "#030712",
               "clr-secondary": "#1DD100",
             },
+            gridTemplateRows: {
+              "custom-row1": "repeat(11, minmax(110px, 1fr))",
+              "custom-row2": "repeat(2, minmax(450px, 1fr))",
+            },
+            gridTmplateColumns: {
+              "custom-col1": "10% 1fr",
+              "custom-col1": "repeat(4, minmax(250px, 1fr))",
+            },
           },
         },
       };
@@ -252,6 +260,7 @@
           whether you're commuting within the city or embarking on long-distance
           travels.
         </p>
+        <!-- choose transport time and place section start-->
         <div>
           <div class="relative">
             <div
@@ -336,11 +345,164 @@
             </div>
             <!-- divider -->
             <img
-              class="h-full absolute inset-y-0 left-[78%]"
+              class="h-full absolute inset-y-0 left-[75%]"
               src="./images/info-devider.png"
               alt="cupon divider" />
           </div>
         </div>
+        <!-- choose transport time and place section end -->
+
+        <!-- choose transport seat plan and purchase section start-->
+        <div
+          class="w-full p-6 bg-white rounded-3xl mt-6 grid grid-cols-[50%_45%] justify-between">
+          <!-- Choose Your Seat -->
+          <div>
+            <h3 class="text-2xl font-raleway font-semibold text-clr-primary">
+              Choose Your Seat
+            </h3>
+            <div
+              class="w-full border-t border-dashed border-clr-primary opacity-20 my-4"></div>
+            <!-- selection icon section -->
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <img src="./images/seat-gray.png" alt="seat image" />
+                <span class="opacity-70 font-medium">Available</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <img src="./images/seat-green-filled.png" alt="seat image" />
+                <span class="text-clr-secondary font-medium">Selected</span>
+              </div>
+            </div>
+            <div
+              class="w-full border-t border-dashed border-clr-primary opacity-20 my-4"></div>
+            <!-- seat plan -->
+            <div>
+              <div class="grid grid-cols-5">
+                <div class="col-span-4">A1</div>
+                <div>A2</div>
+                <div>A3</div>
+                <div>A4</div>
+                <div>A5</div>
+                <div>A6</div>
+                <div>A7</div>
+                <div>A8</div>
+                <div>A9</div>
+                <div>A10</div>
+                <div>A11</div>
+                <div>A12</div>
+                <div>A13</div>
+                <div>A14</div>
+                <div>A15</div>
+                <div>A16</div>
+                <div>A17</div>
+                <div>A18</div>
+                <div>A19</div>
+                <div>A20</div>
+                <div>A21</div>
+                <div>A22</div>
+                <div>A23</div>
+                <div>A24</div>
+                <div>A25</div>
+                <div>A26</div>
+                <div>A27</div>
+                <div>A28</div>
+                <div>A29</div>
+                <div>A30</div>
+                <div>A31</div>
+                <div>A32</div>
+                <div>A33</div>
+                <div>A34</div>
+                <div>A35</div>
+                <div>A36</div>
+                <div>A37</div>
+                <div>A38</div>
+                <div>A39</div>
+                <div>A40</div>
+                <div>A41</div>
+                <div>A42</div>
+                <div>A43</div>
+                <div>A44</div>
+                <div>A45</div>
+                <div>A46</div>
+                <div>A47</div>
+                <div>A48</div>
+                <div>A49</div>
+                <div>A50</div>
+                <div>A51</div>
+                <div>A52</div>
+                <div>A53</div>
+                <div>A54</div>
+                <div>A55</div>
+              </div>
+            </div>
+          </div>
+          <!-- Select Your Seat -->
+          <div>
+            <h3 class="text-2xl font-raleway font-semibold text-clr-primary">
+              Select Your Seat
+            </h3>
+            <div
+              class="w-full border-t border-dashed border-clr-primary opacity-20 my-4"></div>
+            <!-- Seat Price checkout table -->
+            <div class="p-7 w-full bg-[#f7f8f8] rounded-xl">
+              <div
+                class="flex justify-between items-center *:text-md *:font-medium *:text-clr-primary">
+                <span
+                  >Seat
+                  <span class="badge bg-clr-secondary text-white">2</span></span
+                >
+                <span>Class</span>
+                <span>Price</span>
+              </div>
+              <div
+                class="w-full border-t border-dashed border-clr-primary opacity-20 my-4"></div>
+              <!-- Selected Seat Container -->
+              <div id="selected-seats">
+                <div
+                  class="flex justify-between items-center *:text-clr-primary *:opacity-60">
+                  <span>C2</span>
+                  <span>Economy</span>
+                  <span>550</span>
+                </div>
+              </div>
+              <div
+                class="w-full border-t border-solid border-clr-primary opacity-20 my-4"></div>
+
+              <!-- Total Price table -->
+              <div
+                class="flex justify-between items-center *:text-md *:font-bold *:text-clr-primary mb-3">
+                <span>Total Price</span>
+                <span>BDT <span>550</span></span>
+              </div>
+
+              <!-- Coupon Price Table -->
+              <div
+                class="flex justify-between items-center *:text-md *:font-bold *:text-clr-primary mb-3">
+                <span>Discount Amount</span>
+                <span>BDT <span>550</span></span>
+              </div>
+              <!-- Coupon Input Field -->
+              <div class="flex bg-white p-2 rounded-xl gap-2">
+                <input
+                  type="text"
+                  placeholder="Have any coupon?"
+                  class="input focus:border-none w-full max-w-xs" />
+                <button class="btn bg-[#1DD100] border-none px-3">Apply</button>
+              </div>
+              <!-- Grand Total Price table -->
+              <div
+                class="flex justify-between items-center *:text-md *:font-bold *:text-clr-primary mb-3">
+                <span>Grand Total</span>
+                <span>BDT <span>1100</span></span>
+              </div>
+            </div>
+            <!-- Seat Price checkout table end-->
+            <!-- User form  start -->
+
+            <!-- User form  end -->
+          </div>
+        </div>
+        <!-- choose transport seat plan and purchase section end-->
       </section>
       <!-- Ticket Form Section End -->
     </main>
