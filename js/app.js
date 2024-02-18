@@ -19,6 +19,16 @@ function couponAppyBtn() {
   }
 }
 
-function selectSeatPosition() {
-  const seatContainer = document.getElementById("seat-container");
-}
+// Selected Seat Container
+const seatContainer = document.getElementById("seat-container");
+
+// Add event listener to the container
+seatContainer.addEventListener("click", (e) => {
+  // Check if the clicked element is a seat-item
+  if (e.target.classList.contains("seat-item")) {
+    // change the property of the clicked element
+    e.target.classList.remove("bg-slate-300");
+    e.target.classList.add("bg-[#1DD100]");
+    e.target.classList.add("text-white");
+  }
+});
