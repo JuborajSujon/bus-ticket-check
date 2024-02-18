@@ -388,7 +388,7 @@
                 class="grid grid-cols-[20px_1fr_1fr_1fr_1fr] justify-between justify-items-center items-center gap-2 font-inter text-xl font-medium text-clr-primary text-opacity-50">
                 <div
                   id="max-qty-alert"
-                  class="col-span-4 py-2 px-4 md:py-4 md:px-8 rounded-xl text-red-500 bg-[#1DD10015] invisible">
+                  class="col-span-4 text-sm py-2 px-4 md:py-4 md:px-8 rounded-xl text-red-500 bg-[#1DD10015] invisible">
                   You already selected max qty
                 </div>
                 <div class="py-2 px-3 md:py-3 md:px-5 bg-slate-200 rounded-lg">
@@ -655,9 +655,10 @@
 
               <!-- Coupon Price Table -->
               <div
-                class="flex justify-between items-center *:text-md *:font-bold *:text-clr-primary mb-3">
+                id="coupon-discount-price-container"
+                class="flex justify-between items-center *:text-md *:font-bold *:text-clr-primary mb-3 hidden">
                 <span>Discount Amount</span>
-                <span>BDT <span>550</span></span>
+                <span>BDT <span id="coupon-discount-price">550</span></span>
               </div>
               <!-- Coupon Input Field -->
               <div

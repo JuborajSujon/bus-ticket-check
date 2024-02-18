@@ -18,6 +18,8 @@ const seatTicketContainer = document.getElementById("seat-ticket-container");
 // Total Price selected
 const totalPriceContainer = document.getElementById("total-price-container");
 
+// Grand total price selected
+
 for (const item of seatContainer) {
   // Add event listener to the container
   item.addEventListener("click", (e) => {
@@ -54,7 +56,7 @@ for (const item of seatContainer) {
           maxQtyAlert.classList.remove("visible");
           maxQtyAlert.classList.add("invisible");
           clearInterval(refreshInvervalId);
-        }, 2000);
+        }, 4000);
 
         return;
       }
@@ -65,20 +67,43 @@ for (const item of seatContainer) {
 // Cuopon Apply Button
 
 function couponAppyBtn() {
-  const cuoponContainer = document.getElementById("coupon-container");
-  const cuoponSingle = getInnerText("coupon-single");
-  const cuoponDuoble = getInnerText("cuopon-duoble");
+  // Get total price
+  const totalPrice = parseInt(totalPriceContainer.innerText);
 
-  inputCuoponValue = cuoponContainer.firstElementChild.value;
-
-  if (cuoponSingle === inputCuoponValue) {
-    cuoponContainer.classList.add("hidden");
-  } else if (cuoponDuoble === inputCuoponValue) {
-    cuoponContainer.classList.add("hidden");
-  } else if (inputCuoponValue === "") {
-    return;
+  if (totalPrice === 0) {
+    alert("Please select seat");
   } else {
-    alert("Invalid coupon code");
-    cuoponContainer.firstElementChild.value = "";
+    const cuoponContainer = document.getElementById("coupon-container");
+    const cuoponSingle = getInnerText("coupon-single");
+    const cuoponDuoble = getInnerText("cuopon-duoble");
+
+    // Get the coupon discount price container
+    const couponDiscountPrice = document.getElementById(
+      "coupon-discount-price-container"
+    );
+
+    // Get the coupon discount price element
+    const couponDiscountPriceElement = document.getElementById(
+      "coupon-discount-price"
+    );
+    // Get the coupon code from input
+    inputCuoponValue = cuoponContainer.firstElementChild.value;
+
+    if (cuoponSingle === inputCuoponValue) {
+      cuoponContainer.classList.add("hidden");
+      couponDiscountPrice.classList.remove("hidden");
+      const discountPrice = (totalPrice * 15) / 100;
+      couponDiscountPriceElement.innerText = discountPrice.toFixed(2);
+    } else if (cuoponDuoble === inputCuoponValue) {
+      cuoponContainer.classList.add("hidden");
+      couponDiscountPrice.classList.remove("hidden");
+      const discountPrice = (totalPrice * 20) / 100;
+      couponDiscountPriceElement.innerText = discountPrice.toFixed(2);
+    } else if (inputCuoponValue === "") {
+      return;
+    } else {
+      alert("Invalid coupon code");
+      cuoponContainer.firstElementChild.value = "";
+    }
   }
 }
