@@ -287,7 +287,7 @@
                   <div
                     class="flex items-center gap-1 p-4 bg-[#1cd10015] rounded-xl text-[#1DD100] text-xl font-medium">
                     <img src="./images/seat-green.png" alt="seat green" />
-                    <span>40</span>
+                    <span id="seat-remainer">40</span>
                     <span>Seats left</span>
                   </div>
                 </div>
@@ -343,7 +343,9 @@
                   class="w-12 h-12 mb-5"
                   src="./images/fare.png"
                   alt="BDT icon" />
-                <h3 class="text-3xl font-bold mb-1">550 Taka</h3>
+                <h3 class="text-3xl font-bold mb-1">
+                  <span id="ticket-price">550</span> Taka
+                </h3>
                 <p class="text-xl font-semibold opacity-60">Per Seat</p>
               </div>
             </div>
@@ -385,7 +387,8 @@
                 id="seat-container"
                 class="grid grid-cols-[20px_1fr_1fr_1fr_1fr] justify-between justify-items-center items-center gap-2 font-inter text-xl font-medium text-clr-primary text-opacity-50">
                 <div
-                  class="col-span-4 py-2 px-4 md:py-4 md:px-8 rounded-xl text-clr-secondary bg-[#1DD10015]">
+                  id="max-qty-alert"
+                  class="col-span-4 py-2 px-4 md:py-4 md:px-8 rounded-xl text-red-500 bg-[#1DD10015] invisible">
                   You already selected max qty
                 </div>
                 <div class="py-2 px-3 md:py-3 md:px-5 bg-slate-200 rounded-lg">
@@ -620,7 +623,11 @@
                 class="flex justify-between items-center *:text-md *:font-medium *:text-clr-primary">
                 <span
                   >Seat
-                  <span class="badge bg-clr-secondary text-white">2</span></span
+                  <span
+                    id="seat-to-cart"
+                    class="badge bg-clr-secondary text-white"
+                    >0</span
+                  ></span
                 >
                 <span>Class</span>
                 <span>Price</span>
@@ -628,13 +635,13 @@
               <div
                 class="w-full border-t border-dashed border-clr-primary opacity-20 my-4"></div>
               <!-- Selected Seat Container -->
-              <div id="selected-seats">
-                <div
+              <div id="seat-ticket-container" class="py-2">
+                <!-- <div
                   class="flex justify-between items-center *:text-clr-primary *:opacity-60">
                   <span>C2</span>
                   <span>Economy</span>
                   <span>550</span>
-                </div>
+                </div> -->
               </div>
               <div
                 class="w-full border-t border-solid border-clr-primary opacity-20 my-4"></div>
