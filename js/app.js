@@ -1,24 +1,3 @@
-// Cuopon Apply Button
-
-function couponAppyBtn() {
-  const cuoponContainer = document.getElementById("coupon-container");
-  const cuoponSingle = getInnerText("coupon-single");
-  const cuoponDuoble = getInnerText("cuopon-duoble");
-
-  inputCuoponValue = cuoponContainer.firstElementChild.value;
-
-  if (cuoponSingle === inputCuoponValue) {
-    cuoponContainer.classList.add("hidden");
-  } else if (cuoponDuoble === inputCuoponValue) {
-    cuoponContainer.classList.add("hidden");
-  } else if (inputCuoponValue === "") {
-    return;
-  } else {
-    alert("Invalid coupon code");
-    cuoponContainer.firstElementChild.value = "";
-  }
-}
-
 // Selected Seat Container
 const seatContainer = document.getElementsByClassName("seat-item");
 
@@ -35,6 +14,9 @@ const ticketPrice = parseInt(getInnerText("ticket-price"));
 
 // Select the seat ticket price
 const seatTicketContainer = document.getElementById("seat-ticket-container");
+
+// Total Price selected
+const totalPriceContainer = document.getElementById("total-price-container");
 
 for (const item of seatContainer) {
   // Add event listener to the container
@@ -60,19 +42,43 @@ for (const item of seatContainer) {
 
         // Add selected seat to cart
         addItemToCart(seatTicketContainer, userPressedSeat, ticketPrice);
+
+        // Cart Ticket Price item selected and total price
+        let totalPrice = cartTicketPrice("cart-ticket-price");
+        totalPriceContainer.innerText = totalPrice;
       } else {
-        alert("No seat left");
         const maxQtyAlert = document.getElementById("max-qty-alert");
         maxQtyAlert.classList.remove("invisible");
         maxQtyAlert.classList.add("visible");
         const refreshInvervalId = setInterval(() => {
           maxQtyAlert.classList.remove("visible");
           maxQtyAlert.classList.add("invisible");
-          console.log("Hello");
+          clearInterval(refreshInvervalId);
         }, 2000);
-        clearInterval(refreshInvervalId);
+
         return;
       }
     }
   });
+}
+
+// Cuopon Apply Button
+
+function couponAppyBtn() {
+  const cuoponContainer = document.getElementById("coupon-container");
+  const cuoponSingle = getInnerText("coupon-single");
+  const cuoponDuoble = getInnerText("cuopon-duoble");
+
+  inputCuoponValue = cuoponContainer.firstElementChild.value;
+
+  if (cuoponSingle === inputCuoponValue) {
+    cuoponContainer.classList.add("hidden");
+  } else if (cuoponDuoble === inputCuoponValue) {
+    cuoponContainer.classList.add("hidden");
+  } else if (inputCuoponValue === "") {
+    return;
+  } else {
+    alert("Invalid coupon code");
+    cuoponContainer.firstElementChild.value = "";
+  }
 }

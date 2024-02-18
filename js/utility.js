@@ -26,6 +26,7 @@ function addItemToCart(parentContainer, elementInnerText, ticketPrice) {
 
   const span3 = document.createElement("span");
   span3.textContent = ticketPrice;
+  span3.classList.add("cart-ticket-price");
 
   // Append the span elements to the container
   containerDiv.appendChild(span1);
@@ -36,8 +37,12 @@ function addItemToCart(parentContainer, elementInnerText, ticketPrice) {
   parentContainer.appendChild(containerDiv);
 }
 
-/* <div class="flex justify-between items-center *:text-clr-primary *:opacity-60">
-  // <span>C2</span>
-  // <span>Economy</span>
-  // <span>550</span>
-// </div>; */
+// Cart Ticket Price item selected and total price
+function cartTicketPrice(element) {
+  const cartTicketPrice = document.getElementsByClassName(element);
+  let total = 0;
+  for (const item of cartTicketPrice) {
+    total += parseInt(item.innerText);
+  }
+  return total;
+}
