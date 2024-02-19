@@ -15,6 +15,9 @@ const seatTicketContainer = document.getElementById("seat-ticket-container");
 // Total Price selected
 const totalPriceContainer = document.getElementById("total-price-container");
 
+// Get the coupon button container
+const couponButtonContainer = document.getElementById("coupon-apply-btn");
+
 // Grand total price selected
 const grandTotalPrice = document.getElementById("grand-total-price");
 
@@ -75,7 +78,10 @@ for (const item of seatContainer) {
         grandTotalPrice.innerText = totalPrice;
 
         //Check if the cuopon is already used
-        couponAppyBtn();
+        if (seatToCartValue === 4) {
+          couponButtonContainer.removeAttribute("disabled");
+          // couponAppyBtn();
+        }
 
         // Check if the input phone number is valid
         if (inputPhoneNumber.value.trim() === "") {

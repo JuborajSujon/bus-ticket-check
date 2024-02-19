@@ -176,7 +176,7 @@
         <div class="font-inter flex flex-col lg:flex-row gap-8">
           <div class="relative lg:w-1/2">
             <div
-              class="p-12 bg-[#FFBF0F] flex items-center justify-between rounded-3xl">
+              class="p-6 sm:p-12 bg-[#FFBF0F] flex items-center justify-between rounded-3xl">
               <!-- offer time -->
               <div>
                 <h3 class="text-4xl font-black text-clr-primary opacity-80">
@@ -196,13 +196,13 @@
               </div>
             </div>
             <img
-              class="h-full absolute inset-y-0 left-[60%] lg:left-[55%]"
+              class="hidden sm:block h-full absolute inset-y-0 left-[60%] lg:left-[55%]"
               src="./images/cupon-devider.png"
               alt="cupon divider" />
           </div>
           <div class="relative lg:w-1/2">
             <div
-              class="p-12 bg-[#F78C9C] flex items-center justify-between rounded-3xl">
+              class="p-6 sm:p-12 bg-[#F78C9C] flex items-center justify-between rounded-3xl">
               <!-- offer time -->
               <div>
                 <h3 class="text-4xl font-black text-clr-primary opacity-80">
@@ -222,7 +222,7 @@
               </div>
             </div>
             <img
-              class="h-full absolute inset-y-0 left-[60%] lg:left-[53%]"
+              class="hidden sm:block h-full absolute inset-y-0 left-[60%] lg:left-[53%]"
               src="./images/cupon-devider.png"
               alt="cupon divider" />
           </div>
@@ -256,7 +256,7 @@
         <div>
           <div class="relative">
             <div
-              class="p-8 bg-[#FFF] flex flex-col lg:flex-row items-center justify-between gap-4 rounded-3xl">
+              class="p-2 sm:p-8 bg-[#FFF] flex flex-col lg:flex-row items-center justify-between gap-4 rounded-3xl">
               <!-- Transport schedule -->
               <div class="flex flex-col items-center w-[77%] gap-4">
                 <div
@@ -661,7 +661,9 @@
                   placeholder="Have any coupon?"
                   class="input focus:border-none w-[80%]" />
                 <button
+                  id="coupon-apply-btn"
                   onclick="couponAppyBtn()"
+                  disabled
                   class="btn bg-[#1DD100] border-none px-6">
                   Apply
                 </button>
