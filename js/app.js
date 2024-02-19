@@ -24,6 +24,22 @@ const inputPhoneNumber = document.getElementById("phone-number");
 // Select the next button
 const nextBtn = document.getElementById("next-btn");
 
+// phone number validation
+inputPhoneNumber.addEventListener("change", (e) => {
+  e.preventDefault();
+  const phoneNumber = e.target.value.trim();
+
+  if (phoneNumber === "") {
+    return;
+  } else if (!phoneNumber.length > 0 || isNaN(phoneNumber)) {
+    alert("Please enter a valid number.");
+  } else if (!itemSelected) {
+    alert("Please select seat number");
+  } else {
+    nextBtn.removeAttribute("disabled");
+  }
+});
+
 // Selected Seat Container
 const seatContainer = document.getElementsByClassName("seat-item");
 
