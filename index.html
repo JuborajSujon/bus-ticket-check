@@ -676,9 +676,10 @@
               </div>
               <!-- Grand Total Price table -->
               <div
+                id="grand-total-price-container"
                 class="flex justify-between items-center *:text-md *:font-bold *:text-clr-primary mb-3">
                 <span>Grand Total</span>
-                <span>BDT <span>1100</span></span>
+                <span>BDT <span id="grand-total-price">0</span></span>
               </div>
             </div>
             <!-- Seat Price checkout table end-->
@@ -702,6 +703,7 @@
                   >
                 </div>
                 <input
+                  id="phone-number"
                   type="phone"
                   placeholder="Enter your phone number"
                   class="input input-bordered focus:border-none w-full" />
@@ -719,6 +721,7 @@
               </label>
 
               <button
+                id="next-btn"
                 class="btn btn-block bg-clr-secondary text-white text-md font-semibold"
                 disabled>
                 Next

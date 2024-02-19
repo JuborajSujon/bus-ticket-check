@@ -1,6 +1,3 @@
-// Selected Seat Container
-const seatContainer = document.getElementsByClassName("seat-item");
-
 // Selected Seat remainer
 const seatRemainer = document.getElementById("seat-remainer");
 let seatRemainerValue = parseInt(getInnerText("seat-remainer"));
@@ -19,6 +16,16 @@ const seatTicketContainer = document.getElementById("seat-ticket-container");
 const totalPriceContainer = document.getElementById("total-price-container");
 
 // Grand total price selected
+const grandTotalPrice = document.getElementById("grand-total-price");
+
+// Selected Seat Container
+const seatContainer = document.getElementsByClassName("seat-item");
+
+// Select the phone number input value
+const inputPhoneNumber = document.getElementById("phone-number");
+
+// Select the next button
+const nextBtn = document.getElementById("next-btn");
 
 for (const item of seatContainer) {
   // Add event listener to the container
@@ -48,6 +55,10 @@ for (const item of seatContainer) {
         // Cart Ticket Price item selected and total price
         let totalPrice = cartTicketPrice("cart-ticket-price");
         totalPriceContainer.innerText = totalPrice;
+        grandTotalPrice.innerText = totalPrice;
+
+        //Check if the cuopon is already used
+        couponAppyBtn();
       } else {
         const maxQtyAlert = document.getElementById("max-qty-alert");
         maxQtyAlert.classList.remove("invisible");
@@ -56,11 +67,24 @@ for (const item of seatContainer) {
           maxQtyAlert.classList.remove("visible");
           maxQtyAlert.classList.add("invisible");
           clearInterval(refreshInvervalId);
-        }, 4000);
+        }, 3000);
 
         return;
       }
     }
+
+    // Check next button is disabled or not
+    inputPhoneNumber.addEventListener("change", (e) => {
+      e.preventDefault();
+      const phoneNumber = e.target.value.trim();
+
+      if (!phoneNumber.length >= 5 || isNaN(phoneNumber)) {
+        alert("Please enter a valid 5-digit or above phone number.");
+        inputPhoneNumber.focus();
+      } else {
+        nextBtn.removeAttribute("disabled");
+      }
+    });
   });
 }
 
@@ -70,8 +94,11 @@ function couponAppyBtn() {
   // Get total price
   const totalPrice = parseInt(totalPriceContainer.innerText);
 
+  // Get grand total price
+  const grandTotal = parseInt(grandTotalPrice.innerText);
+
   if (totalPrice === 0) {
-    alert("Please select seat");
+    alert("Please select seat number");
   } else {
     const cuoponContainer = document.getElementById("coupon-container");
     const cuoponSingle = getInnerText("coupon-single");
@@ -94,11 +121,15 @@ function couponAppyBtn() {
       couponDiscountPrice.classList.remove("hidden");
       const discountPrice = (totalPrice * 15) / 100;
       couponDiscountPriceElement.innerText = discountPrice.toFixed(2);
+      const newGrandTotal = grandTotal - discountPrice;
+      grandTotalPrice.innerText = newGrandTotal.toFixed(2);
     } else if (cuoponDuoble === inputCuoponValue) {
       cuoponContainer.classList.add("hidden");
       couponDiscountPrice.classList.remove("hidden");
       const discountPrice = (totalPrice * 20) / 100;
       couponDiscountPriceElement.innerText = discountPrice.toFixed(2);
+      const newGrandTotal = grandTotal - discountPrice;
+      grandTotalPrice.innerText = newGrandTotal.toFixed(2);
     } else if (inputCuoponValue === "") {
       return;
     } else {
