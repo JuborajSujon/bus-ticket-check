@@ -78,8 +78,8 @@ for (const item of seatContainer) {
       e.preventDefault();
       const phoneNumber = e.target.value.trim();
 
-      if (!phoneNumber.length >= 5 || isNaN(phoneNumber)) {
-        alert("Please enter a valid 5-digit or above phone number.");
+      if (!phoneNumber.length > 0 || isNaN(phoneNumber)) {
+        alert("Please enter a valid number.");
         inputPhoneNumber.focus();
       } else {
         nextBtn.removeAttribute("disabled");
