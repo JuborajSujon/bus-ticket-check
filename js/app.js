@@ -18,14 +18,14 @@ const totalPriceContainer = document.getElementById("total-price-container");
 // Grand total price selected
 const grandTotalPrice = document.getElementById("grand-total-price");
 
-// Selected Seat Container
-const seatContainer = document.getElementsByClassName("seat-item");
-
 // Select the phone number input value
 const inputPhoneNumber = document.getElementById("phone-number");
 
 // Select the next button
 const nextBtn = document.getElementById("next-btn");
+
+// Selected Seat Container
+const seatContainer = document.getElementsByClassName("seat-item");
 
 for (const item of seatContainer) {
   // Add event listener to the container
@@ -59,6 +59,21 @@ for (const item of seatContainer) {
 
         //Check if the cuopon is already used
         couponAppyBtn();
+
+        // Check if the input phone number is valid
+        if (inputPhoneNumber.value.trim() === "") {
+        } else if (
+          !inputPhoneNumber.value.trim().length > 0 ||
+          isNaN(inputPhoneNumber.value.trim())
+        ) {
+          alert("Please enter a valid number.");
+        } else {
+          nextBtn.removeAttribute("disabled");
+          return;
+        }
+
+        // Next button is disabled or not
+        isNextBtnDisabled(seatContainer);
       } else {
         const maxQtyAlert = document.getElementById("max-qty-alert");
         maxQtyAlert.classList.remove("invisible");
@@ -126,14 +141,34 @@ function couponAppyBtn() {
   }
 }
 
-// Check next button is disabled or not
-inputPhoneNumber.addEventListener("change", (e) => {
-  e.preventDefault();
-  const phoneNumber = e.target.value.trim();
+function isNextBtnDisabled(itemClicked) {
+  // Select the phone number input value
+  const inputPhoneNumber = document.getElementById("phone-number");
 
-  if (!phoneNumber.length > 0 || isNaN(phoneNumber)) {
-    alert("Please enter a valid number.");
-  } else {
-    nextBtn.removeAttribute("disabled");
-  }
-});
+  // Select the next button
+  const nextBtn = document.getElementById("next-btn");
+
+  // Check next button is disabled or not
+  inputPhoneNumber.addEventListener("change", (e) => {
+    e.preventDefault();
+    const phoneNumber = e.target.value.trim();
+
+    // Select the item clicked
+    let itemSelected = false;
+    // Add event listener form item
+    for (const item of itemClicked) {
+      if (item.classList.contains("clicked")) {
+        itemSelected = true;
+      }
+    }
+    if (phoneNumber === "") {
+      return;
+    } else if (!phoneNumber.length > 0 || isNaN(phoneNumber)) {
+      alert("Please enter a valid number.");
+    } else if (!itemSelected) {
+      alert("Please select seat number");
+    } else {
+      nextBtn.removeAttribute("disabled");
+    }
+  });
+}
