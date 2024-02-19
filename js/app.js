@@ -33,6 +33,7 @@ inputPhoneNumber.addEventListener("change", (e) => {
     return;
   } else if (!phoneNumber.length > 0 || isNaN(phoneNumber)) {
     alert("Please enter a valid number.");
+    e.target.value = "";
   } else if (!itemSelected) {
     alert("Please select seat number");
   } else {
