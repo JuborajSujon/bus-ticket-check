@@ -72,19 +72,6 @@ for (const item of seatContainer) {
         return;
       }
     }
-
-    // Check next button is disabled or not
-    inputPhoneNumber.addEventListener("change", (e) => {
-      e.preventDefault();
-      const phoneNumber = e.target.value.trim();
-
-      if (!phoneNumber.length > 0 || isNaN(phoneNumber)) {
-        alert("Please enter a valid number.");
-        inputPhoneNumber.focus();
-      } else {
-        nextBtn.removeAttribute("disabled");
-      }
-    });
   });
 }
 
@@ -138,3 +125,15 @@ function couponAppyBtn() {
     }
   }
 }
+
+// Check next button is disabled or not
+inputPhoneNumber.addEventListener("change", (e) => {
+  e.preventDefault();
+  const phoneNumber = e.target.value.trim();
+
+  if (!phoneNumber.length > 0 || isNaN(phoneNumber)) {
+    alert("Please enter a valid number.");
+  } else {
+    nextBtn.removeAttribute("disabled");
+  }
+});
